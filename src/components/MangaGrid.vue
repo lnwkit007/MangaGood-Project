@@ -22,16 +22,21 @@ defineProps({
       </span>
     </div>
 
-    <div class="rounded-b-2xl bg-[#0f0f0f] p-4">
-      <div class="col-4 grid grid-cols-4 gap-5">
-        <RouterLink to="" v-for="manga in mangas" class="">
+    <div class="rounded-b-2xl bg-[#0f0f0f] p-5">
+      <div
+        class="col-4 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4"
+      >
+        <RouterLink
+          to=""
+          v-for="manga in mangas"
+          class="flex flex-col justify-between gap-1"
+        >
           <img
             :src="manga.images.jpg.image_url"
-            alt="manga.title"
-            class="w-full rounded-xl object-cover"
-            />
-            <!-- 296 -->
-          <h3 class="text-white">{{ manga.title }}</h3>
+            :alt="manga.title"
+            class="aspect-[2/3] w-full rounded-sm object-cover"
+          />
+          <h3 class="truncate font-medium text-white">{{ manga.title }}</h3>
         </RouterLink>
       </div>
     </div>

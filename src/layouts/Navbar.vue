@@ -32,10 +32,12 @@ const menulists = [
     >
       <div class="flex items-center">
         <RouterLink to="/">
-          <h1 class="px-4 py-2 text-4xl font-bold text-white">MANGAGOOD</h1>
+          <h1 class="px-4 py-2 text-2xl font-bold text-white md:text-4xl">
+            MANGAGOOD
+          </h1>
         </RouterLink>
 
-        <ul class="ml-4 hidden lg:flex lg:gap-4">
+        <ul class="ml-1 hidden lg:flex lg:gap-4">
           <li v-for="menulist in menulists" class="group px-4 py-2">
             <RouterLink :to="menulist.path" :class="menulist.style">
               {{ menulist.message }}

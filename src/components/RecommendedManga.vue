@@ -16,13 +16,16 @@ defineProps({
       </span>
     </div>
 
-    <div class="rounded-b-2xl bg-[#0f0f0f] p-4">
-      <div class="flex flex-col">
-        <RouterLink to="" v-for="manga in mangas" class="border border-white text-white">
-          <img :src="manga.images.jpg.image_url" alt="" />
-          <h3>{{ manga.title }}</h3>
+    <div class="rounded-b-2xl bg-[#0f0f0f] p-5">
+      <div class="grid grid-cols-1 gap-5">
+        <RouterLink to="" v-for="manga in mangas" class="flex gap-2 text-white">
+          <img
+            :src="manga.images.jpg.image_url"
+            :alt="manga.title"
+            class="aspect-[2/3] rounded-xl object-cover lg:max-h-40"
+          />
+          <h3 class="truncate font-medium text-white">{{ manga.title }}</h3>
         </RouterLink>
-        <div class="border">asdf</div>
       </div>
     </div>
   </section>
