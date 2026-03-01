@@ -29,6 +29,7 @@ defineProps({
         <RouterLink
           to=""
           v-for="manga in mangas"
+          :key="mal_id"
           class="flex flex-col justify-between gap-1"
         >
           <img
@@ -36,7 +37,16 @@ defineProps({
             :alt="manga.title"
             class="aspect-[2/3] w-full rounded-sm object-cover"
           />
-          <h3 class="truncate font-medium text-white">{{ manga.title }}</h3>
+          <div>
+            <h3 class="truncate font-medium text-white">
+              {{ manga.title }}
+            </h3>
+
+            <span class="flex items-center gap-1">
+              <span class="pi pi-eye text-white"></span>
+              <p class="truncate text-sm text-white">{{ manga.members }}</p>
+            </span>
+          </div>
         </RouterLink>
       </div>
     </div>
