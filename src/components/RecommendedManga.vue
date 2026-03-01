@@ -17,18 +17,21 @@ defineProps({
     </div>
 
     <div class="rounded-b-2xl bg-[#0f0f0f] p-5">
-      <div class="grid grid-cols-1 gap-5">
+      <div
+        class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-1"
+      >
         <RouterLink
           to=""
           v-for="manga in mangas"
           :key="mal_id"
-          class="flex gap-2"
+          class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
           <img
             :src="manga.images.jpg.image_url"
             :alt="manga.title"
             class="aspect-[2/3] rounded-xl object-cover lg:max-h-40"
           />
+
           <div class="flex flex-col gap-1 truncate">
             <h3 class="truncate font-medium text-white">
               {{ manga.title }}

@@ -30,7 +30,7 @@ defineProps({
           to=""
           v-for="manga in mangas"
           :key="mal_id"
-          class="flex flex-col justify-between gap-1"
+          class="flex flex-col gap-1"
         >
           <img
             :src="manga.images.jpg.image_url"

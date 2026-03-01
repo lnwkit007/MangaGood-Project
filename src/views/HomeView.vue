@@ -23,14 +23,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="min-h-screen pt-10 pb-15">
-    <div class="mx-auto grid max-w-330 lg:grid-flow-col gap-2 px-4">
+  <section class="min-h-screen pt-8 pb-13 sm:pt-10 sm:pb-15">
+    <div class="mx-auto grid max-w-330 gap-4 px-4 lg:grid-flow-col lg:gap-2">
       <div class="col-span-9 flex flex-col gap-4">
         <MangaGrid :mangas="mangas" />
         <MangaGrid :mangas="mangas" />
       </div>
 
-      <div class="col-span-4">
+      <div class="col-span-9 lg:col-span-4">
         <RecommendedManga :mangas="mangas" />
       </div>
     </div>
