@@ -1,38 +1,58 @@
 <script setup>
+import { provide, ref } from "vue";
 import { RouterLink } from "vue-router";
+
+// import components
+import Sidebar from "./Sidebar.vue";
+
+const stateNavbar = ref(false);
+
+const UpdateSateNavbar = () => {
+  stateNavbar.value = !stateNavbar.value;
+  console.log(stateNavbar.value);
+};
 
 const menulists = [
   {
     path: "/",
-    style: "text-base font-bold text-white group-hover:text-[#ffa31c]",
+    style:
+      "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
     message: "หน้าหลัก",
   },
   {
     path: "/",
-    style: "text-base font-bold text-white group-hover:text-[#ffa31c]",
+    style:
+      "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
     message: "อนิเมะญี่ปุ่น",
   },
   {
     path: "/",
-    style: "text-base font-bold text-white group-hover:text-[#ffa31c]",
+    style:
+      "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
     message: "อนิเมะเกาหลี",
   },
   {
     path: "/",
-    style: "text-base font-bold text-white group-hover:text-[#ffa31c]",
+    style:
+      "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
     message: "อนิเมะจีน",
   },
 ];
+
+provide("StateNavbar", {
+  stateNavbar,
+  menulists,
+});
 </script>
 
 <template>
-  <nav class="w-full bg-[#0f0f0f] px-4 py-4">
+  <nav class="w-full border-b border-white bg-[#0f0f0f] px-4 py-4">
     <div
       class="mx-auto flex w-full max-w-330 items-center justify-between py-2"
     >
       <div class="flex items-center">
         <RouterLink to="/">
-          <h1 class="px-4 py-2 text-2xl font-bold text-white md:text-4xl">
+          <h1 class="px-4 py-2 text-2xl font-bold text-white sm:text-4xl">
             MANGAGOOD
           </h1>
         </RouterLink>
@@ -46,7 +66,7 @@ const menulists = [
         </ul>
       </div>
 
-      <div class="hidden lg:inline">
+      <div class="hidden sm:inline">
         <div class="flex items-center gap-2 rounded-3xl bg-[#1c1c1c] px-3 py-2">
           <span class="pi pi-search text-[#ffa31c]"></span>
 
@@ -61,11 +81,14 @@ const menulists = [
       </div>
 
       <button
-        class="flex items-center gap-2 rounded-sm px-4 py-2 outline-3 outline-[#ffa31c] lg:hidden"
+        @click="UpdateSateNavbar"
+        class="flex items-center gap-2 rounded-sm px-4 py-2 outline-3 outline-[#ffa31c] sm:hidden"
       >
-        <span class="pi pi-bars text-[#ffa31c]"></span>
+        <span v-if="!stateNavbar" class="pi pi-bars text-[#ffa31c]"></span>
+        <span v-else-if="stateNavbar" class="pi pi-times text-[#ffa31c]"></span>
         <p class="text-base font-bold text-[#ffa31c]">MEMU</p>
       </button>
     </div>
   </nav>
+  <Sidebar />
 </template>

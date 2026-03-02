@@ -23,7 +23,7 @@ defineProps({
         <RouterLink
           to=""
           v-for="manga in mangas"
-          :key="mal_id"
+          :key="manga.mal_id"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
           <img
