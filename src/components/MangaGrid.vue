@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 
 defineProps({
+  title: String,
   mangas: Array,
 });
 </script>
@@ -9,10 +10,10 @@ defineProps({
 <template>
   <section>
     <div
-      class="flex justify-between rounded-t-2xl border-b border-white bg-[#0f0f0f] px-4 py-2"
+      class="flex justify-between rounded-t-2xl border-b border-[#ffa31c] bg-[#0f0f0f] px-4 py-3"
     >
       <span class="inline-block">
-        <h2 class="text-lg text-white">โรแฟนมังงะ by MangaKimi</h2>
+        <h2 class="text-lg font-bold text-white">{{ title }}</h2>
       </span>
 
       <span class="group inline-block">
@@ -26,25 +27,23 @@ defineProps({
       <div
         class="col-4 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4"
       >
-        <RouterLink
-          to=""
-          v-for="manga in mangas"
-          :key="manga.mal_id"
-          class="flex flex-col gap-1"
-        >
+        <RouterLink to="" v-for="manga in mangas" class="flex flex-col gap-1">
           <img
-            :src="manga.images.jpg.image_url"
-            :alt="manga.title"
-            class="aspect-[2/3] w-full rounded-sm object-cover"
+            :src="`https://image.readrealm.co/${manga.book_cover.fileName}`"
+            :alt="manga.book_subject"
+            class=" aspect-[2/3] rounded-sm object-cover"
           />
+          <!-- aspect-[2/3] w-full -->
           <div>
             <h3 class="truncate font-medium text-white">
-              {{ manga.title }}
+              {{ manga.book_subject }}
             </h3>
 
             <span class="flex items-center gap-1">
               <span class="pi pi-eye text-white"></span>
-              <p class="truncate text-sm text-white">{{ manga.members }}</p>
+              <p class="truncate text-sm text-white">
+                {{ manga.book_views_count }}
+              </p>
             </span>
           </div>
         </RouterLink>

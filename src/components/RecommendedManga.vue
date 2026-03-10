@@ -9,10 +9,10 @@ defineProps({
 <template>
   <section>
     <div
-      class="flex justify-between rounded-t-2xl border-b border-white bg-[#0f0f0f] px-4 py-2"
+      class="flex justify-between rounded-t-2xl border-b border-[#ffa31c] bg-[#0f0f0f] px-4 py-3"
     >
       <span class="inline-block">
-        <h2 class="text-lg text-white">มังงะแนะนำ</h2>
+        <h2 class="text-lg font-bold text-white">มังงะแนะนำ</h2>
       </span>
     </div>
 
@@ -23,23 +23,23 @@ defineProps({
         <RouterLink
           to=""
           v-for="manga in mangas"
-          :key="manga.mal_id"
+          :key="manga.book_ID"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
           <img
-            :src="manga.images.jpg.image_url"
-            :alt="manga.title"
+            :src="`https://image.readrealm.co/${manga.book_cover.fileName}`"
+            :alt="manga.book_subject"
             class="aspect-[2/3] rounded-xl object-cover lg:max-h-40"
           />
 
           <div class="flex flex-col gap-1 truncate">
             <h3 class="truncate font-medium text-white">
-              {{ manga.title }}
+              {{ manga.book_subject }}
             </h3>
 
             <span class="flex items-center gap-1">
               <span class="pi pi-eye text-white"></span>
-              <p class="truncate text-sm text-white">{{ manga.members }}</p>
+              <p class="truncate text-sm text-white">{{ manga.book_views_count }}</p>
             </span>
           </div>
         </RouterLink>

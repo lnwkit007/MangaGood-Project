@@ -6,15 +6,24 @@ import axios from "axios";
 import MangaGrid from "../components/MangaGrid.vue";
 import RecommendedManga from "../components/RecommendedManga.vue";
 import Loadding from "../components/Loadding.vue";
+import Banner from "../components/Banner.vue";
 
-const mangas = ref([]);
+const MangaMain = ref([]);
+const MangaList = ref([]);
+const Recommended = ref([]);
 const loading = ref(true);
 const error = ref(null);
 
 onMounted(async () => {
   try {
-    const responseMangaList = await axios.get(import.meta.env.VITE_API_MANGA);
-    mangas.value = responseMangaList.data.data;
+    const [MangaMainRes, MangaListRes, RecommendedRes] = await Promise.all([
+      axios.get(`${import.meta.env.VITE_API_MANGA}&page=1`),
+      axios.get(`${import.meta.env.VITE_API_MANGA}&page=2`),
+      axios.get(`${import.meta.env.VITE_API_MANGA}&page=3`),
+    ]);
+    MangaMain.value = MangaMainRes.data;
+    MangaList.value = MangaListRes.data;
+    Recommended.value = RecommendedRes.data;
   } catch (err) {
     error.value = "Failed to fetch Mangas";
   } finally {
@@ -38,17 +47,20 @@ onMounted(async () => {
       <Loadding />
     </div>
 
-    <div
-      v-else-if="!loading"
-      class="mx-auto grid max-w-330 gap-4 px-4 lg:grid-flow-col lg:gap-2"
-    >
-      <div class="col-span-9 flex flex-col gap-4">
-        <MangaGrid :mangas="mangas" />
-        <MangaGrid :mangas="mangas" />
-      </div>
+    <div v-else-if="!loading">
+      <div class="mx-auto max-w-330 px-4">
+        <Banner class="mb-4" />
 
-      <div class="col-span-9 lg:col-span-4">
-        <RecommendedManga :mangas="mangas" />
+        <div class="grid gap-4 lg:grid-flow-col lg:gap-2">
+          <div class="col-span-12 lg:col-span-8 flex flex-col gap-4">
+            <MangaGrid :mangas="MangaMain" title="นิยายยอดนิยม"/>
+            <MangaGrid :mangas="MangaList" title="การ์ตูนยอดนิยม"/>
+          </div>
+
+          <div class="col-span-12 lg:col-span-4">
+            <RecommendedManga :mangas="Recommended" />
+          </div>
+        </div>
       </div>
     </div>
   </section>

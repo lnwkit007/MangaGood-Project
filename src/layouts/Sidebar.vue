@@ -8,7 +8,7 @@ const { stateNavbar, menulists } = inject("StateNavbar");
 <template>
   <aside
     v-if="stateNavbar"
-    class="flex flex-col gap-4 border-b border-white bg-[#0f0f0f] px-8 py-6 sm:py-4 lg:hidden"
+    class="flex flex-col gap-4 border-b border-[#ffa31c] bg-[#0f0f0f] px-8 py-6 sm:py-4 lg:hidden"
   >
     <div class="sm:hidden">
       <div class="flex items-center gap-2 rounded-3xl bg-[#1c1c1c] px-3 py-2">
@@ -29,6 +29,19 @@ const { stateNavbar, menulists } = inject("StateNavbar");
         <RouterLink :to="menulist.path" :class="menulist.style">{{
           menulist.message
         }}</RouterLink>
+      </li>
+    </ul>
+  </aside>
+
+  <aside
+    v-else
+    class="hidden flex-col gap-4 border-b border-[#ffa31c] bg-[#0f0f0f] px-8 py-6 sm:flex sm:py-4 lg:hidden"
+  >
+    <ul class="flex flex-col gap-3 sm:flex-row">
+      <li v-for="menulist in menulists" class="w-full">
+        <RouterLink :to="menulist.path" :class="menulist.style">
+          {{ menulist.message }}
+        </RouterLink>
       </li>
     </ul>
   </aside>

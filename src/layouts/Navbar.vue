@@ -46,14 +46,15 @@ provide("StateNavbar", {
 </script>
 
 <template>
-  <nav class="w-full border-b border-white bg-[#0f0f0f] px-4 py-4">
+  <nav class="w-full border-b border-[#ffa31c] bg-[#0f0f0f] px-4 py-4">
     <div
       class="mx-auto flex w-full max-w-330 items-center justify-between py-2"
     >
       <div class="flex items-center">
         <RouterLink to="/">
-          <h1 class="px-4 py-2 text-2xl font-bold text-white sm:text-4xl">
-            MANGAGOOD
+          <h1 class="px-4 py-2 text-2xl font-bold sm:text-4xl">
+            <span class="text-white">MANGA</span>
+            <span class="text-[#ffa31c]">GOOD</span>
           </h1>
         </RouterLink>
 
