@@ -12,7 +12,7 @@ defineProps({
       class="flex justify-between rounded-t-2xl border-b border-[#ffa31c] bg-[#0f0f0f] px-4 py-3"
     >
       <span class="inline-block">
-        <h2 class="text-lg font-bold text-white">มังงะแนะนำ</h2>
+        <h2 class="text-lg font-bold text-white">นิยายและการ์ตูนที่แนะนำ</h2>
       </span>
     </div>
 

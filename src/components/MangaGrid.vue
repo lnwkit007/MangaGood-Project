@@ -31,7 +31,7 @@ defineProps({
           <img
             :src="`https://image.readrealm.co/${manga.book_cover.fileName}`"
             :alt="manga.book_subject"
-            class=" aspect-[2/3] rounded-sm object-cover"
+            class="aspect-[2/3] rounded-sm object-cover"
           />
           <!-- aspect-[2/3] w-full -->
           <div>

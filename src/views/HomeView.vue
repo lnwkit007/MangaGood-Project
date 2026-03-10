@@ -52,9 +52,9 @@ onMounted(async () => {
         <Banner class="mb-4" />
 
         <div class="grid gap-4 lg:grid-flow-col lg:gap-2">
-          <div class="col-span-12 lg:col-span-8 flex flex-col gap-4">
-            <MangaGrid :mangas="MangaMain" title="นิยายยอดนิยม"/>
-            <MangaGrid :mangas="MangaList" title="การ์ตูนยอดนิยม"/>
+          <div class="col-span-12 flex flex-col gap-4 lg:col-span-8">
+            <MangaGrid :mangas="MangaMain" title="นิยายยอดนิยม" />
+            <MangaGrid :mangas="MangaList" title="การ์ตูนยอดนิยม" />
           </div>
 
           <div class="col-span-12 lg:col-span-4">

@@ -12,23 +12,23 @@ import { Pagination } from "swiper/modules";
 const ImagesBanners = [
   {
     name: "Banner1",
-    src: "/images/59a52771a2613071728a2079184b22e9.jpg",
-  },
-  {
-    name: "Banner2",
     src: "/images/5e6e271af5829b46e47946499986e7db.jpg",
   },
   {
+    name: "Banner2",
+    src: "/images/3cd4c52b983e92fd279af69483145209.jpg",
+  },
+  {
     name: "Banner3",
-    src: "/images/611eaAr2hQL.jpg",
+    src: "/images/9d884b77cd1ae9ab86e1995cf90d2439.jpg",
   },
   {
     name: "Banner4",
-    src: "/images/922fb40d153d4498eb81e53e82fc5bc8.jpg",
+    src: "/images/ca484aa2563131f7d5d28d9d0fd7cbd4.jpg",
   },
   {
     name: "Banner5",
-    src: "/images/fb56aa52d65f39f3a6d2b68fc003d471.jpg",
+    src: "/images/e9cf92aa60f69a533ce2122776c43000.jpg",
   },
 ];
 </script>
