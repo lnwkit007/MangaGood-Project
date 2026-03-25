@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 
-defineProps({
+const props = defineProps({
   mangas: Array,
 });
 </script>
@@ -21,14 +21,14 @@ defineProps({
         class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-1"
       >
         <RouterLink
-          to=""
-          v-for="manga in mangas"
-          :key="manga.book_ID"
+          :to="{ name: 'MangaDetailView', params: {book_ID: manga.book_ID} }"
+          v-for="manga in props.mangas"
+          :key="manga?.book_ID"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
           <img
-            :src="`https://image.readrealm.co/${manga.book_cover.fileName}`"
-            :alt="manga.book_subject"
+            :src="`https://image.readrealm.co/${manga?.book_cover?.fileName}`"
+            :alt="manga?.book_subject"
             class="aspect-[2/3] rounded-xl object-cover lg:max-h-40"
           />
 

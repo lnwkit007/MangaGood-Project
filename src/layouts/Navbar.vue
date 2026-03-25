@@ -23,19 +23,19 @@ const menulists = [
     path: "/",
     style:
       "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
-    message: "อนิเมะญี่ปุ่น",
+    message: "นิยาย",
   },
   {
     path: "/",
     style:
       "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
-    message: "อนิเมะเกาหลี",
+    message: "มังงะ",
   },
   {
     path: "/",
     style:
       "font-base flex w-full justify-center py-2 text-base text-white group-hover:text-[#ffa31c] sm:py-0 lg:font-bold",
-    message: "อนิเมะจีน",
+    message: "อนิเมะ",
   },
 ];
 

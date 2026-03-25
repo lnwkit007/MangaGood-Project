@@ -3,3 +3,18 @@
 body {
     font-family: "Noto Sans Thai", sans-serif;
 }
+
+/* scrollbar style */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f1f5f9; /* slate-100 */
+  border-radius: 9999px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #ffa31c; /* blue-500 */
+  border-radius: 9999px;
+}

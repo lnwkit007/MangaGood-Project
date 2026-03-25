@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import axios from "axios";
+import { onMounted } from "vue";
 
 // import components
 import MangaGrid from "../components/MangaGrid.vue";
@@ -9,27 +8,12 @@ import Loadding from "../components/Loadding.vue";
 import Banner from "../components/Banner.vue";
 import Error from "../components/Error.vue";
 
-const MangaMain = ref([]);
-const MangaList = ref([]);
-const Recommended = ref([]);
-const loading = ref(true);
-const error = ref(null);
+// import composables
+import { useMangas } from "../composables/useManga";
+const { mangaMain, mangaList, recommended, loading, error, fetchMangas } = useMangas();
 
-onMounted(async () => {
-  try {
-    const [MangaMainRes, MangaListRes, RecommendedRes] = await Promise.all([
-      axios.get(`${import.meta.env.VITE_API_MANGA}&page=1`),
-      axios.get(`${import.meta.env.VITE_API_MANGA}&page=2`),
-      axios.get(`${import.meta.env.VITE_API_MANGA}&page=3`),
-    ]);
-    MangaMain.value = MangaMainRes.data;
-    MangaList.value = MangaListRes.data;
-    Recommended.value = RecommendedRes.data;
-  } catch (err) {
-    error.value = "ไม่สามารถแสดงข้อมูลได้";
-  } finally {
-    loading.value = false;
-  }
+onMounted(() => {
+    fetchMangas();
 });
 </script>
 
@@ -47,12 +31,12 @@ onMounted(async () => {
 
         <div class="grid gap-4 lg:grid-flow-col lg:gap-2">
           <div class="col-span-12 flex flex-col gap-4 lg:col-span-8">
-            <MangaGrid :mangas="MangaMain" title="นิยายยอดนิยม" />
-            <MangaGrid :mangas="MangaList" title="การ์ตูนยอดนิยม" />
+            <MangaGrid :mangas="mangaMain" title="นิยายยอดนิยม" />
+            <MangaGrid :mangas="mangaList" title="การ์ตูนยอดนิยม" />
           </div>
 
           <div class="col-span-12 lg:col-span-4">
-            <RecommendedManga :mangas="Recommended" />
+            <RecommendedManga :mangas="recommended" />
           </div>
         </div>
       </div>
