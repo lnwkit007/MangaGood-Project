@@ -21,7 +21,7 @@ const props = defineProps({
         class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-1"
       >
         <RouterLink
-          :to="{ name: 'MangaDetailView', params: {book_ID: manga.book_ID} }"
+          :to="`/manga/${manga.book_ID}`"
           v-for="manga in props.mangas"
           :key="manga?.book_ID"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
