@@ -23,7 +23,6 @@ const props = defineProps({
         <RouterLink
           :to="`/manga/${manga.book_ID}`"
           v-for="manga in props.mangas"
-          :key="manga?.book_ID"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
           <img
