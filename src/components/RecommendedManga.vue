@@ -25,6 +25,7 @@ const props = defineProps({
           v-for="manga in props.mangas"
           class="flex flex-col gap-1 lg:flex-row lg:gap-2"
         >
+        
           <img
             :src="`https://image.readrealm.co/${manga?.book_cover?.fileName}`"
             :alt="manga?.book_subject"

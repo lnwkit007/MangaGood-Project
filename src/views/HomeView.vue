@@ -10,20 +10,19 @@ import Error from "../components/Error.vue";
 
 // import composables
 import { useMangas } from "../composables/useManga";
-const { mangaMain, mangaList, recommended, loading, error, fetchMangas } = useMangas();
+const { mangaMain, mangaList, recommended, loading, error, fetchMangas } =
+  useMangas();
 
 onMounted(() => {
-    fetchMangas();
+  fetchMangas();
 });
 </script>
 
 <template>
-  <Error v-if="error" :error="error" />
+  <Loadding v-if="loading" />
 
   <section v-else class="min-h-screen pt-8 pb-13 sm:pt-10 sm:pb-15">
-    <div v-if="loading" class="flex h-screen items-center justify-center">
-      <Loadding />
-    </div>
+    <Error v-if="error" :error="error" />
 
     <div v-else>
       <div class="mx-auto max-w-330 px-4">
