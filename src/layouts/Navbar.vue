@@ -9,7 +9,6 @@ const stateNavbar = ref(false);
 
 const UpdateSateNavbar = () => {
   stateNavbar.value = !stateNavbar.value;
-  console.log(stateNavbar.value);
 };
 
 const menulists = [
