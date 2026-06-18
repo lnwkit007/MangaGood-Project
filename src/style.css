@@ -10,11 +10,11 @@ body {
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: #f1f5f9; /* slate-100 */
+  background: #f1f5f9;
   border-radius: 9999px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: #ffa31c; /* blue-500 */
+  background: #ffa31c;
   border-radius: 9999px;
 }
