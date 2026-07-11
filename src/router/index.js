@@ -5,6 +5,9 @@ import MangaDetailView from "../views/MangaDetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
   routes: [
     {
       path: "/",
