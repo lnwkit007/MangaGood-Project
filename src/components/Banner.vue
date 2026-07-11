@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const ImagesBanners = [
   {
@@ -34,7 +35,7 @@ const ImagesBanners = [
 </script>
 
 <template>
-  <swiper :pagination="true" :modules="[Pagination]" class="mySwiper">
+  <swiper :pagination="true" :autoplay="{ delay: 2000, disableOnInteraction: false, }" :modules="[Pagination, Autoplay]" class="mySwiper">
     <swiper-slide v-for="ImagesBanner in ImagesBanners">
       <img
         :src="ImagesBanner.src"
