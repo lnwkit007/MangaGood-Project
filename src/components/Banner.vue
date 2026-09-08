@@ -13,24 +13,16 @@ import { Pagination, Autoplay } from "swiper/modules";
 const ImagesBanners = [
   {
     name: "Banner1",
-    src: "/images/5e6e271af5829b46e47946499986e7db.jpg",
+    src: "/images/banner/banner-1.png",
   },
   {
     name: "Banner2",
-    src: "/images/3cd4c52b983e92fd279af69483145209.jpg",
+    src: "/images/banner/banner-2.png",
   },
   {
     name: "Banner3",
-    src: "/images/9d884b77cd1ae9ab86e1995cf90d2439.jpg",
-  },
-  {
-    name: "Banner4",
-    src: "/images/ca484aa2563131f7d5d28d9d0fd7cbd4.jpg",
-  },
-  {
-    name: "Banner5",
-    src: "/images/e9cf92aa60f69a533ce2122776c43000.jpg",
-  },
+    src: "/images/banner/banner-3.png",
+  }
 ];
 </script>
 
@@ -40,7 +32,7 @@ const ImagesBanners = [
       <img
         :src="ImagesBanner.src"
         :alt="ImagesBanner.name"
-        class="h-full max-h-[420px] w-full rounded-2xl object-cover object-center"
+        class="h-full max-h-155 w-full rounded-2xl object-cover object-center"
       />
     </swiper-slide>
   </swiper>
